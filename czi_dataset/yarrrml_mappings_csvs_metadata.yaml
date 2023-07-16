@@ -1,0 +1,61 @@
+prefixes:
+  au: "https://w3id.org/softalias/"
+  schema: "https://schema.org/"
+  rdfs: "http://www.w3.org/2000/01/rdf-schema#"
+
+mappings:
+  Bioconductor:
+    sources:
+      - [bioconductor-FINAL.csv~csv]
+    s: schema:$(ID)
+    po:
+      - [a, schema:SoftwareApplication]
+      - [schema:identifier, $(ID)]
+      - [schema:name, $(software_mention)] 
+      - [schema:provider, $(source)]
+      - [schema:provider, $(platform)]
+      - [schema:downloadUrl, $(package_url)]
+      - [schema:description, $(description)]
+      - [schema:url, $(homepage_url)]
+      - [schema:license, $(license)]
+      - [schema:codeRepository, $(github_repo)]
+      - [schema:citation, $(reference)]
+
+  Cran:
+    sources:
+      - [cran_FINAL.csv~csv]
+    s: schema:$(ID)
+    po:
+      - [a, schema:SoftwareApplication]
+      - [schema:identifier, $(ID)]
+      - [schema:name, $(CRAN Package)]
+      - [schema:url, $(CRAN Link)]
+      - [schema:description, $(Title)]
+
+  Pypi:
+  sources:
+    - [pypi_FINAL.csv~csv]
+  s: schema:$(ID)
+  po:
+    - [a, schema:SoftwareApplication]
+    - [schema:identifier, $(ID)]
+    - [schema:name, $(pypi package)]
+    - [schema:url, $(pypi_url)]
+
+Scicrunch:
+  sources:
+    - [scicrunch-FINAL.csv~csv]
+  s: schema:$(ID)
+  po:
+    - [a, schema:SoftwareApplication]
+    - [schema:identifier, $(ID)]
+    - [schema:name, $(software_name)]
+    - [schema:name, $(Resource Name)]
+    - [schema:url, $(Resource Name Link)]
+    - [schema:description, $(Description)]
+    - [schema:url, $(Resource ID Link)]
+    - [schema:provider, $(Parent Organization Link)]
+    - [schema:funder,$(Funding Agency)]
+    - [rdfs:seeAlso, $(Alternate URLs)]
+    - [schema:previousItem, $(Old URLs)]
+    - [schema:citations, $(Reference Link)]

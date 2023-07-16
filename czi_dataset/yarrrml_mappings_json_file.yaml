@@ -1,0 +1,34 @@
+prefixes:
+  au: "https://w3id.org/softalias/"
+  schema: "https://schema.org/"
+  prov: "http://www.w3.org/ns/prov#"
+
+mappings:
+  tool:
+    sources:
+      - ['data.json~jsonpath', '$.tools[*]']
+    s: schema:$(id)
+    po:
+      - [a, schema:SoftwareApplication]
+      - [schema:name, $(name)]
+      - [schema:identifier, $(id)]
+      - [prov:hadPrimarySource, $(source)]
+        - p: au:alias
+          o:
+            mapping: alias
+              condition:
+              function: equal
+              parameters:
+                - [str1, $(id), s]
+                - [str2, $(id_group), o]
+
+  alias:
+    sources:
+      - ['data.json~jsonpath', '$.tools[*].alias[*]']
+  s: au:alias/$(id_alias)
+  po:
+    - [a, foaf:alias]
+    - [schema:name, $(name)]
+    - [au:id_group, $(id_group)]
+    - [schema:identifier, $(id_alias)]
+    - [au:number_of_repetitions,  $(number_of_repetitions), xsd:integer]
