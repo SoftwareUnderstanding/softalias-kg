@@ -1,0 +1,12 @@
+cff-version: 1.2.1
+message: "If you use this software, please cite it as below."
+title: "Softalias Knowledge Graph"
+license: Apache-2.0
+authors:
+  - family-names: Lopez
+    given-names: Hector
+  - family-names: Garijo
+    given-names: Daniel
+    orcid: "http://orcid.org/0000-0003-0454-7145"
+doi: 10.5281/zenodo.8341333
+version: 0.0.1

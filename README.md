@@ -1,5 +1,5 @@
 # softalias-kg
-[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active)
+[![Project Status: Active – The project has reached a stable, usable state and is being actively developed.](https://www.repostatus.org/badges/latest/active.svg)](https://www.repostatus.org/#active) [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.8341333.svg)](https://doi.org/10.5281/zenodo.8341333)
 
 
 **Authors:** Hector López and Daniel Garijo
@@ -11,3 +11,17 @@ This repository contains the mappings, cleaning code and construct queries used 
 - [Wikidata](https://wikidata.org/): we have enriched Softalias-KG with over 8K software applications (free software, wd:Q341) and more than 3k alternative labels (skos:altLabel) from Wikidata. The folder `wikidata` contains the python script with the queries used to retrieve software aliases from Wikidata. The category `Software` is not used directly because it incorporates many undesired results (e.g., videogames)
 
 The folder `vocab` contains a description of the vocabulary used to describe aliases. Namely, we have class "SoftwareAlias" and the "alias" property (designed to indicate that a SoftwareApplication has a certain alias)
+
+## Requirements
+The pipeline has been tested with python 3.9. The following libraries are required:
+
+- pandas
+- json
+- pickle
+- shutil
+- numpy
+- jaro (for Jaro-Winkler metric calculation)
+- Sparqlwrapper (for Wikidata construct queries)
+- morph_kgc
+
+For CZI transformation details, please see the associated [README file](https://github.com/SoftwareUnderstanding/softalias-kg/tree/main/czi_dataset/transformation_scripts#readme).
